@@ -10,10 +10,15 @@ def get_character_count(text_to_count):
             character_count[_] = 1
     return character_count
 
-def sort_stats(character_count):
-    character_count_lst = []
 
-    for k,v in character_count.items():
-        character_count_lst.append({k:v})
-    
-    return character_count_lst
+def sort_on(d):
+    return d["num"]
+
+
+def sort_stats(character_count):
+    sorted_list = []
+
+    for i in character_count:
+        sorted_list.append({"char": i, "num": character_count[i]})
+    sorted_list.sort(reverse=True, key=sort_on)
+    return sorted_list
